@@ -15,9 +15,9 @@ RUN curl -L https://developer.arm.com/-/media/Files/downloads/gnu-rm/8-2019q3/RC
 ENV PATH="/${GCC_ARM_VER}/bin:/mergehex:/nrfjprog:$PATH"
 
 
-RUN curl https://www.segger.com/downloads/embedded-studio/Setup_EmbeddedStudio_ARM_v452a_linux_x64.tar.gz && \
+RUN curl https://www.segger.com/downloads/embedded-studio/Setup_EmbeddedStudio_ARM_v452a_linux_x64.tar.gz -o ses.tar.gz && \
 	tar -zxvf ses.tar.gz && \
-	DISPLAY=:1 $(find arm_segger_* -name "install_segger*") --copy-files-to /ses && \
+	$(find arm_segger_* -name "install_segger*") --copy-files-to /ses  --accept-license && \
 	rm ses.tar.gz && \
 	rm -rf arm_segger_embedded_studio_*
 RUN curl https://developer.nordicsemi.com/nRF5_SDK/nRF5_SDK_v15.x.x/nRF5_SDK_15.2.0_9412b96.zip -o nRF5_SDK_15.2.0_9412b96.zip && unzip nRF5_SDK_15.2.0_9412b96.zip && rm nRF5_SDK_15.2.0_9412b96.zip
