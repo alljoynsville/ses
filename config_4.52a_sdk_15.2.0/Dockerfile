@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 ARG GCC_ARM_VER=gcc-arm-none-eabi-8-2019-q3-update
 RUN apt-get update && \
-	apt-get install -y libx11-6 libfreetype6 libxrender1 libfontconfig1 libxext6 xvfb curl bzip2 unzip python python-pip git zip && \
+	apt-get install -y libx11-6 libfreetype6 libxrender1 libfontconfig1 libxext6 xvfb curl bzip2 unzip python3 python3-pip git zip && \
 	pip install nrfutil
 
 RUN Xvfb :1 -screen 0 1024x768x16 &
